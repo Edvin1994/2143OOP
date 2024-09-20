@@ -1,0 +1,52 @@
+//**************************************************************
+// Assignment #1
+// Name: Edvin Benjamin
+// OOP Date: 09/20/2024
+// This program was done with the assistance of AI. 
+//***************************************************************
+
+#include <iostream>
+class Fraction {
+private:
+    int numerator;
+    int denominator;
+
+    // Helper methods
+    int gcd(int a, int b) const;
+    int lcm(int a, int b) const;
+
+public:
+    // Constructor
+    Fraction(int num, int den);
+
+    // Overloaded operators
+    Fraction operator+(const Fraction& other) const;
+    Fraction operator-(const Fraction& other) const;
+    Fraction operator*(const Fraction& other) const;
+    Fraction operator/(const Fraction& other) const;
+    bool operator==(const Fraction& other) const;
+
+    // Friend function for output
+    friend std::ostream& operator<<(std::ostream& os, const Fraction& frac);
+};
+
+
+int main() {
+    Fraction frac1(1, 2);
+    Fraction frac2(3, 4);
+
+    Fraction resultAdd = frac1 + frac2;
+    Fraction resultSub = frac1 - frac2;
+    Fraction resultMul = frac1 * frac2;
+    Fraction resultDiv = frac1 / frac2;
+
+    std::cout << "Addition: " << resultAdd << std::endl;
+    std::cout << "Subtraction: " << resultSub << std::endl;
+    std::cout << "Multiplication: " << resultMul << std::endl;
+    std::cout << "Division: " << resultDiv << std::endl;
+
+    bool isEqual = frac1 == frac2;
+    std::cout << "Equality: " << (isEqual ? "Equal" : "Not Equal") << std::endl;
+
+    return 0;
+}
